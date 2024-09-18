@@ -1,0 +1,11 @@
+ Two major features to grasp:
+
+1)Product hierarchy:
+-Shape is the base interface extended by  DisplayFriendlyShape and PrinterFriendlyShape;
+-Two flavors of the Circle and Rectangle classes are defined for each: display-friendly and printer-friendly shape;
+
+2)Abstract factory implementation:
+-Made up of ShapeFactory as the base interface;
+-PrinterFriendlyFactory and DisplayFriendlyFactory as the concrete factories;
+-PrinterFriendlyFactory creates only PrinterFriendlyCircle and PrinterFriendlyRectangle;
+-similarly, DisplayFriendlyFactory creates DisplayFriendlyCircle and DisplayFriendlyRectangle;
