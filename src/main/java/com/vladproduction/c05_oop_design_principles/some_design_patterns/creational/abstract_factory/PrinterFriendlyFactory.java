@@ -1,14 +1,14 @@
 package com.vladproduction.c05_oop_design_principles.some_design_patterns.creational.abstract_factory;
 
-public class DisplayFriendlyFactory implements ShapeFactory{
+public class PrinterFriendlyFactory implements ShapeFactory{
 
     @Override
     public Shape getShape(String shape) {
-        switch(shape){
+        switch(shape) {
             case "Circle":
-                return new DisplayFriendlyCircle(10, 10, 20);
+                return new PrinterFriendlyCircle(10, 10, 20);
             case "Rectangle":
-                return new DisplayFriendlyRectangle(10, 20);
+                return new PrinterFriendlyRectangle(10, 20);
         }
         return null;
     }
