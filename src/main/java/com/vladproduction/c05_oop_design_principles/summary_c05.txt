@@ -1,0 +1,23 @@
+Summary
+
+Interfaces
+•	 An interface is a set of abstract methods that defines a protocol.
+•	 An interface cannot be instantiated; however, an interface can extend another interface.
+•	 All methods declared in an interface are implicitly considered to be abstract.
+•	 Abstract class and interface are quite similar concepts. However, you should be careful to use
+     the appropriate construct based on the context.
+
+Object Composition
+•	 Inheritance implies is-a, interface implies is-like-a, and composition implies has-a relationships.
+•	 Favor composition over inheritance whenever feasible.
+•	 Program to an interface, not to an implementation.
+
+Design Patterns
+•	 Design patterns are reusable solutions of frequently recurring design problems.
+•	 The observer design pattern improves loose coupling between subject and observers.
+•	 The singleton design pattern ensures that only one instance of the class is created.
+•	 Making sure that an intended singleton implementation is indeed singleton is a non-trivial
+     task, especially in a multithreading environment.
+•	 The factory design pattern “manufactures” the required type of product on demand.
+•	 You should consider using the abstract factory design pattern when you have a family of objects to be created.
+•	 A DAO design pattern essentially separates your core business logic from your persistence logic.

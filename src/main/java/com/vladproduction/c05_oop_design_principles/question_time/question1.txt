@@ -1,0 +1,6 @@
+Which of the following statements is true?
+A. A class can extend multiple base classes.
+B. You can implement only one interface since Java does not support multiple inheritance.
+C. You can implement multiple interfaces.
+D. You can either extend a class or implement an interface (but not both) at a time.
+Answer: C

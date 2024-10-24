@@ -1,0 +1,7 @@
+This approach allows you to model the shared characteristics of files and folders through a common superclass (FolderItem).
+Both File and Folder can inherit from this superclass, allowing polymorphism.
+In this case, a folder can contain both files and other folders recursively, effectively modeling a file system.
+This is a classic application of the Composite Design Pattern, which is suitable for hierarchical structures.
+
+Choice C is indeed the best answer. By employing inheritance with a common superclass (FolderItem) and utilizing composition
+to allow folders to contain both files and other folders, you create a flexible and clear model of a file system.

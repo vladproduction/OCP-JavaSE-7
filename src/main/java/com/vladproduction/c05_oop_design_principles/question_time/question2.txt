@@ -1,0 +1,20 @@
+public interface Rotatable {
+ void rotate(float degree);
+ // insert code
+}
+
+Now, consider following options which could be replaced with “// insert code”:
+ I. public final float degree = 0;
+ II. public static final float degree = 0;
+III. public final static float degree = 0;
+ IV. public final float degree;
+ V. public float degree;
+ VI. float degree = 0;
+
+Choose the correct option:
+A. Options I, II, III, and VI will compile without errors.
+B. Options I, II, and III will compile without errors.
+C. Options I will compile without errors.
+D. Options IV, and V will compile without errors.
+E. All options will compile without errors.
+Answer: A

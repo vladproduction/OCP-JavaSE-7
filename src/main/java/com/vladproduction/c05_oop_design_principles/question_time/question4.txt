@@ -1,0 +1,16 @@
+Consider the following three classes: University, Department, and CSE_Department (CSE
+stands for Computer Science and Engineering). The University and Department
+classes are related with relation R1, and the Department and CSE_Department classes are
+related with relation R2. Which combination of these relations is appropriate?
+A. R1: inheritance, R2: inheritance
+B. R1: composition, R2: inheritance
+C. R1: inheritance, R2: composition
+D. R1: composition, R2: composition
+Answer: B
+
+B. R1: composition, R2: inheritance
+(basically we can say: University 'has-a' Department, and CSE_Department 'is-a' Department)
+
+(A university has many departments, so they share a has-a relationship between them, a composition relationship.
+CSE_Department is a department, so these two share a is-a relationship between them, an inheritance
+relationship.)
