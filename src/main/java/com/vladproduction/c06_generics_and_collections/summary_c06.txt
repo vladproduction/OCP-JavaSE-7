@@ -1,0 +1,37 @@
+Summary
+
+Generics
+•	 Generics will ensure that any attempts to add elements of types other than the specified
+     type(s) will be caught at compile time itself. Hence, generics offer generic implementation with type safety.
+•	 Java 7 introduced diamond syntax where the type parameters (after new operator and class
+     name) can be omitted. The compiler will infer the types from the type declaration.
+•	 Generics are not covariant. That is, subtyping doesn’t work with generics; you cannot assign a
+     derived generic type parameter to a base type parameter.
+•	 The <?> specifies an unknown type in generics and is known as a wildcard. For example, List<?> refers to list of unknowns.
+•	 Wildcards can be bounded. For example, <? extends Runnable> specifies that ? can match
+     any type as long as it is Runnable or any of its derived types. Note that extends is inclusive, so
+     you can replace X in ? extends X. However, in <? super Runnable> , ? would match only the
+     super types of Runnable, and Runnable itself will not match (i.e., it is an exclusive clause).
+•	 You use the extends keyword for both class type as well as an interface when specifying
+     bounded types in generics. For specifying multiple base types, you use the & symbol. For
+     example, in List<? extends X & Y>, ? will match types, extending both the types X and Y.
+
+Collections Framework
+•	 Avoid mixing raw types with generic types. In other cases, make sure of the type safety manually.
+•	 The terms Collection, Collections, and collection are different.
+     Collection— java.util.Collection<E>—is the root interface in the collection hierarchy.
+     Collections—java.util.Collections—is a utility class that contains only static methods.
+     The general term collection(s) refers to containers like map, stack, queue, etc.
+•	 The container classes store references to objects, so you cannot use primitive types with any of the collection classes.
+•	 The methods hashCode() and equals() need to be consistent for a class. For practical
+     purposes, ensure that you follow this one rule: the hashCode() method should return the same
+     hash value for two objects if the equals() method returns true for them.
+•	 If you’re using an object in containers like HashSet or HashMap, make sure you override the hashCode() and equals() methods correctly.
+•	 The Map interface does not extend the Collection interface.
+•	 It is not recommended that you store null as an argument, since there are methods in the
+     Deque interface that return null, and it would be difficult for you to distinguish between the success or failure of the method call.
+•	 Implement the Comparable interface for your classes where a natural order is possible. If you
+     want to compare the objects other than the natural order or if there is no natural ordering
+     present for your class type, then create separate classes implementing the Comparator
+     interface. Also, if you have multiple alternative ways to decide the order, then go for the
+     Comparator interface.

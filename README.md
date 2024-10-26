@@ -3,8 +3,9 @@
 #
 # modules covered:
 
-* c02_pretest
-* c03_java_class_design
-* c04_advanced_class_design
-* c05_oop_design_principles
+* ### c02_pretest
+* ### c03_java_class_design
+* ### c04_advanced_class_design
+* ### c05_oop_design_principles
+* ### c06_generics_and_collections
 
