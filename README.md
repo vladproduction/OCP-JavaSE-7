@@ -8,4 +8,5 @@
 * ### c04_advanced_class_design
 * ### c05_oop_design_principles
 * ### c06_generics_and_collections
+* ### c07_string_processing
 
