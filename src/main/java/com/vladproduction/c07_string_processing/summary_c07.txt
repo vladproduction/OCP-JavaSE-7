@@ -1,0 +1,28 @@
+Summary
+
+Searching, Parsing, and Building Strings
+•	 You can use the overloaded versions of the method indexOf() in the String class for forward
+     searching in a string, lastIndexOf() for backward searching a string, and regionMatches()
+     for comparing a “region” of text within a string.
+•	 To convert from a primitive type value to String type object, you can make use of the
+     overloaded valueOf() method, which takes a primitive type value as an argument and returns
+     the String object. To convert from the String type object to a primitive type value, you can
+     make use of the parse methods available for primitive types in the corresponding wrapper
+     types of the primitive types.
+•	 For parsing a string, you can use the split() method available in the String class. It takes a
+     delimiter as an argument, and this argument is a regular expression.
+
+Regular Expressions
+•	 A regular expression defines a search pattern that can be used to execute operations such as
+     string search and string manipulation.
+•	 Use the Pattern and Matcher classes whenever you are performing search or replace
+     on strings heavily; they are more efficient and faster than any other way to perform
+     search/replace in Java.
+•	 You can form groups within a regex. These groups can be used to specify quantifiers on a
+     desired subset of the whole regex. These groups can also be used to specify back reference.
+
+String Formatting
+•	 The method printf() (and the method format() in the String class) uses string formatting flags to format strings.
+•	 Each format specifier starts with the % sign; followed by flags, width, and precision
+     information; and ending with a data type specifier. In this string, the flags, width, and precision
+     information are optional but the % sign and data type specifier are mandatory.
