@@ -1,0 +1,39 @@
+Summary
+
+Working with the Path Class
+•	 A Path object is a programming abstraction to represent a path of a file/directory.
+•	 You can get an instance of Path using the get() method of the Paths class.
+•	 Path provides two methods to use to compare Path objects: equals() and compareTo(). Even
+     if two Path objects point to the same file/directory, it is not guaranteed that you will get true
+     from the equals() method.
+
+Performing Operations on Files/Directories
+•	 You can check the existence of a file using the exists() method of the Files class.
+•	 The Files class provides the methods isReadable(), isWriteable(), and isExecutable()
+     to check the ability of the program to read, write, or execute programmatically.
+•	 You can retrieve attributes of a file using the getAttributes() method.
+•	 You can use the readAttributes() method of the Files class to read attributes of a file
+     in bulk.
+•	 The method copy() can be used to copy a file from one location to another. Similarly, the
+     method move() can be used to move a file from one location to another.
+•	 While copying, all the directories (except the last one if you are copying a directory) in the
+     specified path must exist to avoid NoSuchFileException.
+•	 Use the delete() method to delete a file; use the deleteIfExists() method to delete a file
+     only if it exists.
+
+Walking a File Tree
+•	 The Files class provides two flavors of walkFileTree() to enable you to walk through a
+     file system.
+•	 The FileVisitor interface allows you to perform certain operations at certain key junctures.
+•	 If you do not want to implement all four methods in the FileVisitor interface, you can simply
+     extend your implementation from the SimpleFileVisitor class.
+
+Finding a File
+•	 The PathMatcher interface is useful when you want to find a file satisfying a certain pattern.
+     You can specify the pattern using glob or regex.
+
+Watching a Directory for Changes
+•	 Java 7 offers a directory watch service that can notify you when the file you are working on is
+     changed by some other program.
+•	 You can register a Path object using a watch service along with certain event types. Whenever
+     any file in the specified directory changes, an event is sent to the registered program.
