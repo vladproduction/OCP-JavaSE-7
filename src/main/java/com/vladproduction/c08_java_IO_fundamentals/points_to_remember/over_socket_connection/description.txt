@@ -1,0 +1,24 @@
+Network Communication:
+The server and client communicate using socket programming, demonstrating how objects can be transmitted over a network
+
+/**
+ * Below is an illustrative example that demonstrates how a serialized object can be sent over a network
+ * and deserialized on another machine.
+ * This example will use Java's built-in server and client sockets to communicate the serialized data.
+ * */
+
+Usage:
+1)Run the Server code in one terminal or IDE instance.
+2)Run the Client code in another terminal or IDE instance.
+3)The client will send a Person object to the server, and the server will print the introduction message,
+  which demonstrates that the object was not only transmitted but also functional upon deserialization.
+
+If you try to run the server without the Person class available (for instance, if it was removed from the classpath),
+the server would successfully read the state of the Person object but would not be able to invoke methods such as introduce(),
+showcasing the point you mentioned.
+
+Note:
+Make sure that both the server and client classes are compiled in the same directory or appropriately configured classpath
+to recognize the Person class.
+This is essential for the entire serialization and deserialization process to function correctly
+across different machines or environments.
