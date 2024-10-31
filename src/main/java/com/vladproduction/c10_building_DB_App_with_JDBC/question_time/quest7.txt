@@ -1,0 +1,9 @@
+7. Which of the following interfaces does NOT extend the RowSet interface?
+A. JdbcRowSet
+B. CachedRowSet
+C. WebRowSet
+D. TraversalRowSet
+E. JoinRowSet
+
+Answer: D) TraversalRowSet
+(The interfaces deriving from JdbcRowSet are CachedRowSet, WebRowSet, JoinRowSet, and FilteredRowSet.)

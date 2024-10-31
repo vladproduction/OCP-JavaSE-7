@@ -1,0 +1,15 @@
+6. Which of the following two statements are correct regarding RowSets in JDBC?
+
+A. It is possible to use JdbcRowSet as a JavaBeans component.
+B. WebRowSet provides result set in the JSON format.
+C. The filter in a FilteredRowSet object is set at the time of its creation; a filter cannot be set once
+the FilteredRowSet object is created.
+D. A CachedRowSet object caches data in its memory, which makes it possible to use the
+CachedRowSet object without always being connected to its data source.
+
+Answer:
+A. It is possible to use JdbcRowSet as a JavaBeans component.
+D. A CachedRowSet object caches data in its memory, which makes it possible to use the CachedRowSet
+object without always being connected to its data source.
+(Note that B) WebRowSet provides a result set in XML format (not JSON format which is one of the alternatives to
+XML) and C) The filter in a FilteredRowSet object can be set using the setFilter() method any time).

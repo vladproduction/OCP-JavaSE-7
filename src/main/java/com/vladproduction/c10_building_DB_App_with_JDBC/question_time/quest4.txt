@@ -1,0 +1,12 @@
+4. Which one of the following statements would be needed in JDBC 3.0?
+A. Connection connection = DriverManager.getConnection("jdbc:mysql://
+localhost:3306/addressBook", "root", "password"))
+B. Connection connection = DriverManager.createConnection("jdbc:mysql://
+localhost:3306/addressBook", "root", "password"))
+C. Class.forName("com.mysql.jdbc.Driver").newInstance();
+D. Class.forName("com.mysql.jdbc.Driver").getInstance();
+
+Answer: C. Class.forName("com.mysql.jdbc.Driver").newInstance();
+(You need to explicitly load the JDBC driver using the Class.forName() statement in JDBC 3.0. From 4.0
+onwards, this statement is not needed and you can directly get the connection. Note that option A) shows how to
+get the connection for MySQL, and this URl will depend on the specific database used.)

@@ -1,0 +1,20 @@
+5. Consider this program and choose the best option describing its behavior (assume that
+the connection is valid):
+try (Statement statement = connection.createStatement();
+ ResultSet resultSet = statement.executeQuery("SELECT * FROM contact")){
+ System.out.println(resultSet.getInt("id") + "\t"
+ + resultSet.getString("firstName") + "\t"
+ + resultSet.getString("lastName") + "\t"
+ + resultSet.getString("email") + "\t"
+ + resultSet.getString("phoneNo"));
+}
+catch (SQLException sqle) {
+ System.out.println("SQLException");
+}
+A. This program will print the following: SQLException.
+B. This program will print the first row from contact.
+C. This program will print all the rows from contact.
+D. This program will report compiler errors.
+
+Answer: A. This program will print the following: SQLException.
+(The statement while (resultSet.next()) is missing.)

@@ -1,0 +1,69 @@
+Summary
+
+Define the Layout of the JDBC API
+•	 JDBC (Java Database Connectivity) APIs provided by Java are meant for programmatic access
+     to DataBase Management Systems (DBMSs).
+•	 JDBC hides all the heterogeneity of all the DBMSs and offers a single set of APIs to interact
+     with all types of databases.
+•	 The complexity of heterogeneous interactions is delegated to JDBC driver manager and
+     JDBC drivers; hence all the details and complications are hidden by the JDBC API from the application developer.
+•	 There are four types of drivers:
+     1.Type 1 (JDBC-ODBC bridge drivers): JDBC driver calls ODBC (Open Database
+     Connectivity) native calls using the Java Native Interface (JNI).
+     2.Type 2 (Native-API drivers): These drivers use client-side libraries of a specific database
+     and convert JDBC calls to native database calls.
+     3.Type 3 (Network-protocol drivers): These drivers call database middleware and the
+     middleware actually converts JDBC calls to database-specific native calls.
+     4.Type 4 (Native-protocol drivers): The driver directly makes database-specific calls over
+     the network without any support of additional client-side libraries.
+
+Connect to a Database by Using a JDBC driver
+•	 The java.sql.Connection interface provides a channel through which the application and the database communicate.
+•	 The getConnection() method in the DriverManager class takes three arguments: the URL string, username string, and password string.
+•	 The syntax of the URL (which needs to be specified to get the Connection object) is
+     <protocol>:<subprotocol>://<server>:<port>/. An example of a URL string is
+     jdbc:mysql://localhost:3306/. The <protocol> jdbc is the same for all DBMSs;
+     <subprotocol> will differ for each DBMS, <server> depends on the location in which you host
+     the database, and each DBMS uses a specific <port> number.
+•	 If the JDBC API is not able to locate the JDBC driver, it will throw a SQLException. If there are
+     jars for the drivers available, they need to be included in the classpath to enable the JDBC API to locate the driver.
+•	 Prior to JDBC 4.0, you would have to explicitly load the JDBC driver using the
+     Class.forName() statement; with JDBC 4.0 and above, this statement is not needed and the
+     JDBC API will load the driver from the details given in the URL string.
+
+Update and Query a Database
+•	 JDBC supports two interfaces for querying and updating: Statement and ResultSet.
+•	 A Statement is a SQL statement that can be used to communicate a SQL statement to the
+     connected database and receive results from the database. There are three types of Statements:
+	    1.Statement: You need to use Statement when you need to send a SQL statement to the
+         database without any parameter.
+	    2.PreparedStatement: Represents a precompiled SQL statement that can be customized
+         using IN parameters.
+	    3.CallableStatement: Used to execute stored procedures; can handle IN as well as OUT
+         and INOUT parameters.
+•	 A ResultSet is a table with column heading and associated values requested by the query.
+•	 A ResultSet object maintains a cursor pointing to the current row. Initially, the cursor is set
+     to just before the first row; calling the next() method advances the cursor position by one row.
+•	 The column index in the ResultSet object starts from 1 (not from 0).
+•	 You need to call updateRow() after modifying the row contents in a ResultSet; otherwise
+     changes made to the ResultSet object will be lost.
+•	 By calling the getMetaData() method in the Connection interface, you can examine the
+     capabilities of the underlying database.
+
+Customize the Transaction Behavior of JDBC and Commit Transactions
+•	 A transaction is a set of SQL operations that needs to be either executed all successfully or not at all.
+•	 Transaction-related methods are supported in the Connection interface.
+•	 By default auto-commit mode is set to true, so all changes you make through the connection are committed automatically to the database.
+•	 You can use setAutoCommit(false); to enable manual commits. With auto-commit not
+     enabled, you need to explicitly commit or rollback transactions.
+•	 If the commit() method does not execute in manual commit mode, there will be no change in the database.
+•	 You can divide a big transaction into multiple milestones. These milestones are referred to
+     as savepoints. This way you may save the changes to a database up to a milestone once the
+     milestone is achieved.
+
+Use the JDBC 4.1 RowSetProvider, RowSetFactory, and RowSet Interfaces
+•	 RowSet is a special ResultSet that supports the JavaBean component model.
+•	 JdbcRowSet is a connected RowSet while other subinterfaces of RowSet (i.e., JoinRowSet,
+     CachedRowSet, WebRowSet, and FilteredRowSet) are disconnected RowSets.
+•	 RowSetProvider provides APIs to get a RowSetFactory implementation, which can in turn be
+     used to instantiate a relevant RowSet implementation.

@@ -1,0 +1,37 @@
+2. Assume that you’ve freshly created this table with the following command in MySQL:
+create table familyGroup (id int not null auto_increment, nickName varchar(30) Not
+null, primary key (id));
+You’ve written this program that makes use of this table:
+import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+class DbTransactionTest {
+ public static void main(String[] args) throws SQLException {
+ try (Connection connection = DbConnector.connectToDb();
+ Statement statement =
+ connection.createStatement(
+ ResultSet.TYPE_SCROLL_SENSITIVE,
+ResultSet.CONCUR_UPDATABLE);
+ ResultSet resultSet =
+ statement.executeQuery("SELECT * FROM familyGroup")) {
+ resultSet.moveToInsertRow();
+ resultSet.updateString("nickName", "Sam");
+ resultSet.insertRow(); // INSERT ROW
+ System.out.println("Table updated with a row. . .");
+ connection.commit(); // COMMIT STMT
+ }
+ }
+}
+What will be the result of executing this program assuming that establishing the connection succeeds?
+A. The program will successfully insert a row with id = 1 and nickName = “Sam”.
+B. A SQLException will be thrown in the line where the INSERT ROW comment is
+provided because you cannot insert a row on a read-only ResultSet object.
+C. A SQLException will be thrown in the line where the COMMIT STMT statement is
+provided because auto-commit is enabled; hence the commit will fail.
+D. The program will not insert anything into the familyGroup table.
+
+Answer: C. A SQLException will be thrown in the line where the COMMIT STMT statement is provided because
+auto-commit is enabled; hence the commit will fail.
+(Any attempt to use methods such as commit, rollback, setSavepoint, etc. will result in throwing a
+SQLException if auto-commit is not disabled.)

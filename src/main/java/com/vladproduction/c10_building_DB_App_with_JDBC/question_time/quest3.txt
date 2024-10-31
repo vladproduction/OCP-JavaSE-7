@@ -1,0 +1,25 @@
+3. Consider the following sequence of operations in a transaction:
+
+// assume that all operations execute in this program successfully without
+// throwing any exceptions; also assume that the connection is established
+// successfully
+connection.setAutoCommit(false);
+// insert a row into the table here
+// create a savepoint in this transaction here
+
+//insert another row into the table here
+//create a named savepoint in this transaction here
+//insert the third row into the table here
+connection.rollback();
+connection.commit();
+
+What will be the effect of this sequence of actions after executing the statement connection.commit()?
+A. Three rows will be inserted into the table.
+B. No rows will be inserted into the table.
+C. One row will be inserted into the table.
+D. Two rows will be inserted into the table.
+E. All three rows will be inserted into the table.
+
+Answer: B. No rows will be inserted into the table.
+(Since connection.rollback(); is called before connection.commit(), all operations will be undone and no
+rows will be inserted into the table.)

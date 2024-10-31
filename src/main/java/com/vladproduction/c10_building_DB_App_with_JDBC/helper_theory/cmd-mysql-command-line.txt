@@ -1,0 +1,45 @@
+Microsoft Windows [Version 10.0.19045.5011]
+(c) Microsoft Corporation. All rights reserved.
+
+C:\Users\admin>cd \
+
+C:\>cd "Program Files"
+
+C:\Program Files>cd MySQL
+
+C:\Program Files\MySQL>cd "MySQL Server 8.0"
+
+C:\Program Files\MySQL\MySQL Server 8.0>cd bin
+
+C:\Program Files\MySQL\MySQL Server 8.0\bin>mysql -uroot -p
+Enter password: ********
+Welcome to the MySQL monitor.  Commands end with ; or \g.
+Your MySQL connection id is 344
+Server version: 8.0.34 MySQL Community Server - GPL
+
+Copyright (c) 2000, 2023, Oracle and/or its affiliates.
+
+Oracle is a registered trademark of Oracle Corporation and/or its
+affiliates. Other names may be trademarks of their respective
+owners.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+mysql>
+//create DB an table to work with; my db is 'abook' and rest is same
+mysql> /* Let's create a database for our use.*/
+mysql> create database addressBook;
+Query OK, 1 row affected (0.01 sec)
+mysql> /* Now, let's create a table in this database and insert two records for our use later. */
+mysql> use addressBook;
+Database changed
+mysql> create table contact (id int not null auto_increment, firstName varchar(30) Not null,
+lastName varchar(30), email varchar(30), phoneNo varchar(13), primary key (id));
+Query OK, 0 rows affected (0.20 sec)
+mysql> insert into contact values (default, 'Michael', 'Taylor', 'michael@abc.com',
+'+919876543210');
+Query OK, 1 row affected (0.10 sec)
+mysql> insert into contact values (default, 'William', 'Becker', 'william@abc.com',
+'+449876543210');
+Query OK, 1 row affected (0.03 sec)
+mysql> /* That's it. Our database is ready to use now.*/
