@@ -12,4 +12,5 @@
 * ### c08_java_IO_fundamentals
 * ### c09_java_File_IO
 * ### c10_building_DB_App_with_JDBC
+* ### c11_exceptions_and_assertions
 

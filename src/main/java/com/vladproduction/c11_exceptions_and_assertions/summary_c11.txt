@@ -1,0 +1,84 @@
+Summary
+
+Introduction to Exception Handling
+•	 When an exception is thrown from a try block, the JVM looks for a matching catch handler
+from the list of catch handlers in the method call-chain. If no matching handler is found, that
+unhandled exception will result in crashing the application.
+•	 While providing multiple exception handlers (stacked catch handlers), specific exception
+handlers should be provided before general exception handlers. Providing base exception
+handlers before the derived handlers will result in a compiler error.
+•	 You can programmatically access the stack trace using the methods such as
+printStackTrace() and getStackTrace(), which can be called on any exception object.
+•	 A try block can have multiple catch handlers. If the cause of two or more exceptions is similar,
+and the handling code is also similar, you can consider combining the handlers and make it
+into a multi-catch block.
+•	 The code inside a finally block will be executed irrespective of whether a try block has
+successfully executed or resulted in an exception. This makes a finally block the most suitable
+place to release resources, such as file handles, data base handles, network streams, etc.
+
+Try-with-Resources
+•	 Forgetting to release resources by explicitly calling the close() method is a common mistake.
+You can use a try-with-resources statement to simplify your code and auto-close resources.
+For a resource to be usable in a try-with-resources statement, the class of that resource must
+implement the java.lang.AutoCloseable interface and define the close() method.
+•	 You can auto-close multiple resources within a try-with-resources statement. These resources
+need to be separated by semicolons in the try-with-resources statement header.
+•	 Because you can use multiple resources within a try-with-resources statement, the possibility
+of more than one exception getting thrown from the try block and the finally block is high.
+If a try block throws an exception, and a finally block also throws exception(s), then the
+exceptions thrown in the finally block will be added as suppressed exceptions to the exception
+that gets thrown out of the try block to the caller.
+
+Exception Types
+•	 The class Throwable is the root class of the exception hierarchy. Only Throwable and its
+derived classes can be used with Java exception handling keywords such as try, catch,
+and throws.
+•	 The Exception class (except its sub-hierarchy of the RuntimeException class) and its derived
+classes are known as checked exceptions. These exceptions represent exceptional conditions
+that can be reasonably expected to occur when the program executes, hence they must be
+handled. A method that contains some code segment that can throw a checked exception
+must either provide a catch handler to handle it or declare that exception in its throws clause.
+•	 The RuntimeException and Error classes and derived classes are known as unchecked
+exceptions. They can be thrown anywhere in the program (without being declared that the
+segment of code can throw these exceptions).
+•	 The RuntimeException classes and derived classes represent programming mistakes (logical
+mistakes) and are not generally expected to be caught and handled in the program. However,
+in some cases, it is meaningful to handle these exceptions in catch blocks.
+•	 The Error classes and derived classes represent exceptions that arise because of JVM errors;
+either the JVM has detected a serious abnormal condition or has run out of resources. When
+an Error occurs, the typical best course of action is to terminate the program.
+•	 A catch block should either handle the exception or rethrow it. To hide or swallow an
+exception by catching an exception and doing nothing is really a bad practice.
+
+Throws Clause
+•	 The throws clause for a method is meant for listing the checked exceptions that the method
+body can throw.
+•	 Static initialization blocks cannot throw any checked exceptions. Non-static initialization
+blocks can throw checked exceptions; however, all the constructors should declare that
+exception in their throws clause.
+•	 A method’s throws clause is part of the contract that its overriding methods in derived classes
+should obey. An overriding method can provide the same throw clause as the base method’s
+throws clause or a more specific throws clause than the base method’s throws clause. The
+overriding method cannot provide a more general throws clause or declare to throw additional
+checked exceptions when compared to the base method’s throws clause.
+
+Custom Exceptions
+•	 You can define your own exception classes (known as custom exceptions) in your programs.
+•	 It is recommended that you derive custom exceptions from either the Exception or
+RuntimeException class. Creation of custom exceptions by extending the Throwable class (too
+generic) or the Error class (exceptions of this type are reserved for JVM and the Java APIs to
+throw) is not recommended.
+•	 You can wrap one exception and throw it as another exception. These two exceptions become
+chained exceptions. From the thrown exception, you can get the cause of the exception.
+
+Assertions
+•	 Assertions are condition checks in the program and are meant to be used for explicitly
+checking the assumptions you make while writing programs.
+•	 The assert statement is of two forms: one that takes a Boolean argument and one that takes
+an additional string argument.
+•	 If the Boolean condition given in the assert argument fails (i.e., evaluates to false), the
+program will terminate after throwing an AssertionError. It is not advisable to catch and
+recover from when an AssertionError is thrown by the program.
+•	 By default, assertions are disabled at runtime. You can use the command-line arguments of
+–ea (for enabling asserts) and –da (for disabling asserts) and their variants when you invoke
+the JVM.
