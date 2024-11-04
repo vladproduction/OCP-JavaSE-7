@@ -1,0 +1,10 @@
+In general, it is better to acquire locks for small segments of code instead of locking methods unnecessarily,
+so synchronized blocks are useful there.
+In synchronized blocks, you can explicitly provide the reference object on which you want to acquire a lock.
+However, in the case of a synchronized method, you do not provide any explicit reference to acquire a lock on.
+A synchronized method acquires an implicit lock on the this reference (for instance methods) and class object
+(for static methods).
+On the other hand, if you want to acquire a lock on the entire body of a small method, then using synchronized as a
+method attribute is more elegant and convenient than synchronized blocks. In synchronized methods, while reading the
+declaration of the method itself, it becomes clear that a method is synchronized; with synchronized blocks, you need to
+read the documentation or look inside the code to understand that some synchronization is performed.

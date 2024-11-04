@@ -1,0 +1,10 @@
+Lock starvation:
+is a situation that can occur in multithreading environments when high-priority threads continuously monopolize the resources,
+preventing low-priority threads from gaining access to those resources.
+In Java, thread priorities can influence the behavior of thread scheduling, but it's important to note that thread scheduling behavior
+is dependent on the JVM and operating system, and may not always be reliable across different environments.
+
+Example:
+1) Define the shared resource: A simple counter that multiple threads will try to increment.
+2) Create high-priority and low-priority threads: High-priority threads will hold the lock for a longer duration.
+3) Observe the starvation: Low-priority threads will be forced to wait indefinitely while high-priority threads keep acquiring the lock.

@@ -1,0 +1,13 @@
+Problem Statement:
+Assume that you need to implement a dice player game. This is a two player
+game (say the players are “Joe” and “Jane”) where the players throw the dice on their turns. When
+one player throws the dice, another player waits. Once the player completes throwing, he/she
+informs the other player to play; after that, he/she starts waiting for the other player to throw the
+dice. You need to implement these two players as two threads working together. The game ends after
+each player throws 6 times (so there will be a total of 12 throws in the game).
+
+Approach:
+Since the problem statement says “implement these two players as two threads working together,” your solution
+is a multi-threaded program with each player implemented as a thread. The problem also states that when one player
+throws the dice, another waits. So, you should perhaps use a wait/notify mechanism. The dice rolling should result in
+a random value, so you can use the Random class for creating random numbers from 1 to 6.

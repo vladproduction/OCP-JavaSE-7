@@ -14,9 +14,11 @@ public class LocalizedHello2 {
         printMovieDetails(ResourceBundle.getBundle("ResourceBundle", Locale.getDefault()));
 }
     public static void printMovieDetails(ResourceBundle resBundle) {
+        String hello = resBundle.getString("Greeting");
         String movieName = resBundle.getString("movie");
         Long revenue = Long.parseLong(resBundle.getString("gross")); // Convert to Long
         Integer year = Integer.parseInt(resBundle.getString("year")); // Convert to Integer
+        System.out.println(hello);
         System.out.println("Movie " + movieName + " (" + year + ") grossed " + revenue);
     }
 }

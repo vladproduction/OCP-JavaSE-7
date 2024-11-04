@@ -1,0 +1,31 @@
+    Livelock:
+A livelock occurs when two or more threads are continuously changing states in response to each other but
+are unable to make any progress;
+they're too busy responding to each other’s actions rather than continuing their assigned tasks.
+
+    Difference from Deadlocks:
+* Deadlock: In this situation, two or more threads are waiting for each other to release resources,
+causing the program to halt entirely without progress.
+* Livelock: The threads are actively changing states (e.g., reversing their movements like the cars) but still can't proceed,
+leading to active yet unproductive behavior.
+
+    How to Handle Livelocks
+* Randomized Back-off:
+Introduce randomness into the decision-making process. For example, if two threads are trying to acquire a resource,
+they could wait for a random amount of time before trying again. This helps reduce the chances of threads continually interfering with one another.
+
+* Priority and Quotas:
+Implement a priority system where one thread gets more chances to execute before the other attempts.
+This can help ensure one thread is able to complete its task.
+
+* State Management:
+Keep track of the state of threads and introduce a mechanism to detect potential livelock situations.
+It might involve changing how threads respond to resource availability.
+
+* Timeouts:
+Setting a maximum time for threads to attempt to proceed can help escape scenarios of livelock.
+If they exceed this time, they can reset their state and try again.
+
+* Deciding on Actions:
+Encourage threads to take a definitive action rather than waiting passively.
+For instance, rather than reversing indefinitely, they could yield controls at intervals.

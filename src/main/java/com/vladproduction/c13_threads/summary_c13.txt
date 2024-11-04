@@ -1,0 +1,51 @@
+Summary
+
+Introduction to Concurrent Programming
+•	 You can create classes that are capable of multi-threading by implementing the Runnable
+     interface or by extending the Thread class.
+•	 Always implement the run() method. The default run() method in Thread does nothing.
+•	 Call the start() method and not the run() method directly in code. (Leave it to the JVM to
+     call the run() method.)
+•	 Every thread has a thread name, priority, and thread-group associated with it; the default
+     toString() method implementation in Thread prints them.
+•	 If you call the sleep() method of a thread, the thread does not release the lock and it holds on
+     to the lock.
+•	 You can use the join() method to wait for another thread to terminate.
+•	 In general, if you are not using the “interrupt” feature in threads, it is safe to ignore
+InterruptedException; however it’s better still to log or print the stack trace if that exception occurs.
+•	 Threads execute asynchronously; you cannot predict the order in which the threads run.
+•	 Threads are also non-deterministic: in many cases, you cannot reproduce problems like
+     deadlocks or data races every time.
+
+Thread States
+•	 There are three basic thread states: new, runnable, and terminated. When a thread is just
+     created, it is in a new state; when it is ready to run or running, it is in a runnable state. When
+     the thread dies, it’s in terminated state.
+•	 The runnable state has two states internally (at the OS level): ready and running states.
+•	 A thread will be in the blocked state when waiting to acquire a lock. The thread will be in the
+     timed_waiting state when a timeout is given for calls like wait. The thread will be in the waiting
+     state when, for example, wait() is called (without a time out value).
+•	 You will get an IllegalThreadStateException if your operations result in invalid thread state
+     transitions.
+
+Concurrent Access Problems
+•	 Concurrent reads and writes to resources may lead to the data race problem.
+•	 You must use thread synchronization (i.e., locks) to access shared values and avoid data
+     races. Java provides thread synchronization features to provide protected access to shared
+     resources—namely, synchronized blocks and synchronized methods.
+•	 Using locks can introduce problems such as deadlocks. When a deadlock happens, the process
+     will hang and will never terminate.
+•	 A deadlock typically happens when two threads acquire locks in opposite order. When one
+     thread has acquired one lock and waits for another lock, another thread has acquired that
+     other lock and waits for the first lock to be released. So, no progress is made and the program
+     deadlocks.
+•	 To avoid deadlocks, it is better to avoid acquiring multiple locks. When you have to acquire
+     such multiple locks, ensure that they are acquired in the same order in all places in the
+     program.
+
+The Wait/Notify Mechanism
+•	 When a thread has to wait for a particular condition or event to be satisfied by another thread,
+     you can use a wait/notify mechanism as a communication mechanism between threads.
+•	 When a thread needs to wait for a particular condition/event, you can either call wait() with
+     or without a timeout value specified.
+•	 To avoid notifications getting lost, it is better to always use notifyAll() instead of notify().

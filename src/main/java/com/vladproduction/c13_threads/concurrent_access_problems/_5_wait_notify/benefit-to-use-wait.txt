@@ -1,0 +1,5 @@
+If you want a mechanism to wait for a particular event to occur, a wait/notify mechanism is the best
+choice. Sometimes programmers solve this problem by using a sleep call, and they repeatedly check
+the condition to see if the event has occurred. This is an ineffective solution. Further, calling sleep does
+not release the lock (unlike wait), so a solution using sleep is prone to deadlocks. Do not use the sleep
+method when a wait/notify mechanism is the appropriate solution.
