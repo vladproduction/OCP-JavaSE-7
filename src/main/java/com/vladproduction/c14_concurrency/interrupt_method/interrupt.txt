@@ -1,0 +1,21 @@
+Thread.currentThread().interrupt();
+
+1) Respective Policy:
+threads can be interrupted, which typically indicates that the thread should stop what it is doing and terminate its execution.
+By calling interrupt(), you signal to the thread that it should stop its current operation in a controlled manner, allowing for a clean shutdown.
+
+2) Handling InterruptedException:
+In Example of ArrayBlockingQueue both the producer and consumer threads are in a blocking state while waiting on the ArrayBlockingQueue
+(using put() or take()). If a thread is interrupted while it is waiting for a blocking operation,
+a InterruptedException will be thrown. By catching this exception, you can perform cleanup or handle the interruption gracefully.
+//rewriting interruption status respectively: true or false as a flag if thread were interrupted or not;
+
+3) Restoring the Interrupt Status:
+Calling Thread.currentThread().interrupt() after catching an InterruptedException restores the interrupt status of the thread.
+The interrupt status is a flag that indicates whether the thread has been interrupted.
+Resetting this flag is important because:
+    * It allows the interruption status to be checked later in the thread's execution.
+    * Other parts of your code can check for the interruption and take appropriate actions.
+
+4) Purpose of interrupt():
+Communication mechanism between threads. For example, one thread can request another thread to stop its processing by calling interrupt();

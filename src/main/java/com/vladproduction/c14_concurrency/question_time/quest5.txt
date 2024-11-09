@@ -1,0 +1,28 @@
+In your application, there is a producer component that keeps adding new items to a
+fixed-size queue; the consumer component fetches items from that queue. If the queue is
+full, the producer has to wait for items to be fetched; if the queue is empty, the consumer
+has to wait for items to be added.
+
+Which one of the following utilities is suitable for synchronizing the common queue for
+concurrent use by a producer and consumer?
+
+A. RecursiveAction
+B. ForkJoinPool
+C. Future
+D. Semaphore
+E. TimeUnit
+
+Answer:
+D. Semaphore
+
+(The question is a classic producer–consumer problem that can be solved by using
+semaphores. The objects of the synchronizer class java.util.concurrent.Semaphore
+can be used to guard the common queue so that the producer and consumer can
+synchronize their access to the queue. Of the given options, semaphore is the only
+synchronizer; other options are unrelated to providing synchronized access to a queue.)
+
+Option A) RecursiveAction supports recursive ForkJoinTask;
+Option B) ForkJoinPool provides help in running a ForkJoinTask in the context of the Fork/Join framework.
+Option C) Future represents the result of an asynchronous computation whose result will be “available in the
+    future once the computation is complete.”
+Option E) TimeUnit is an enumeration that provides support for different time units such as milliseconds, seconds, and days.

@@ -1,0 +1,28 @@
+Overview of ThreadLocalRandom
+The ThreadLocalRandom class is part of the java.util.concurrent package and is designed for use in multithreading environments.
+It provides a way to generate random numbers that are local to each thread, thus improving performance and reducing contention
+when multiple threads are generating random numbers simultaneously.
+
+Using Math.random() in a concurrent program can lead to contention and bottlenecks because it is a shared resource.
+ThreadLocalRandom solves this problem by maintaining a separate random number generator for each thread.
+
+Key Features of ThreadLocalRandom
+* Thread-Safe: Each thread has its own instance of ThreadLocalRandom.
+* High Performance: Reduces contention among threads.
+* Easy-to-Use Methods: Methods such as nextInt(), nextDouble(), nextFloat(),
+    and more are available for generating random numbers of different types.
+
+Basic Usage (use ThreadLocalRandom, follow these simple steps):
+1) Get the current ThreadLocalRandom instance by calling ThreadLocalRandom.current().
+2) Use the provided methods to generate random numbers.
+
+Benefits of Using ThreadLocalRandom
+* Avoids contention and bottleneck problems found with shared random number generators.
+* Ensures that each thread gets a good distribution of random numbers without performance degradation.
+
+Conclusion
+In summary, ThreadLocalRandom is a powerful tool for generating random numbers in concurrent programming.
+It improves performance and simplifies random number generation in multithreading environments.
+Using it helps you write more efficient and responsive applications.
+
+

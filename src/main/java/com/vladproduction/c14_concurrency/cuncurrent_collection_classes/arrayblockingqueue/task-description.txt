@@ -1,0 +1,14 @@
+    ArrayBlockingQueue:
+An ArrayBlockingQueue in Java is a thread-safe bounded blocking queue backed by an array. It can be useful in scenarios
+where you want to implement producer-consumer patterns.
+
+    This example demonstrates two threads:
+1 - producer, that generates integers and adds them to the queue;
+2 - consumer that takes those integers from the queue and processes them;
+
+    Points:
+* producer is produce faster elements than consumer taking from queue;
+* The ArrayBlockingQueue automatically handles synchronization, avoiding the need for explicit locks;
+* The blocking feature helps manage the flow of data between producers and consumers meaningfully;
+* This pattern can be scaled or modified for different types of production and consumption logic;
+* method Thread.currentThread().interrupt() is used in the producer and consumer classes to handle thread interruption properly;

@@ -1,0 +1,22 @@
+Which one of the following methods return a Future object?
+
+A.The overloaded replace() methods declared in the ConcurrentMap interface
+B.The newThread() method declared in the ThreadFactory interface
+C.The overloaded submit( ) methods declared in the ExecutorService interface
+D.The call() method declared in the Callable interface
+
+Answer:
+C.The overloaded submit() methods declared in ExecutorService interface
+
+Option A)The overloaded replace() methods declared in the ConcurrentMap interface
+remove an element from the map and return the success status (a Boolean value) or the
+removed value.
+
+Option B) The newThread( ) is the only method declared in the ThreadFactory interface
+and it returns a Thread object as the return value.
+
+Option C) The ExecutorService interface has overloaded submit() method that takes a
+task for execution and returns a Future representing the pending results of the task.
+
+Option D) The call() method declared in Callable interface returns the result of the task
+it executed.)

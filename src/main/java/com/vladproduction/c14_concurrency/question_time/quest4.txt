@@ -1,0 +1,21 @@
+You’re writing an application that generates random numbers in the range 0 to 100.
+You want to create these random numbers for use in multiple threads as well as in
+ForkJoinTasks. Which one of the following options will you use for less contention
+(i.e., efficient solution)?
+
+A. int randomInt = ThreadSafeRandom.current().nextInt(0, 100);
+B. int randomInt = ThreadLocalRandom.current().nextInt(0, 101);
+C. int randomInt = new Random(seedInt).nextInt(101);
+D. int randomInt = new Random().nextInt() % 100;
+
+Answer:
+B. int randomInt = ThreadLocalRandom.current().nextInt(0, 101);
+
+(ThreadLocalRandom is a random number generator that is specific to a thread. From API
+documentation of this class: “Use of the ThreadLocalRandom rather than shared Random
+objects in concurrent programs will typically encounter much less overhead and contention.”
+The method "int nextInt(int least, int bound)" in the ThreadLocalRandom class
+returns a pseudo-random number that is uniformly distributed between the given
+least value and the bound value. Note that the value in parameter least is inclusive of
+that value and the bound value is exclusive. So, the call nextInt(0, 101) returns
+pseudo-random integers in the range 0 to 100.)

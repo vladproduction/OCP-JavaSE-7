@@ -1,0 +1,45 @@
+Summary
+
+Using java.util.concurrent Collections
+•	 A semaphore controls access to shared resources. A semaphore maintains a counter to specify
+     number of resources that the semaphore controls.
+•	 CountDownLatch allows one or more threads to wait for a countdown to complete.
+•	 The Exchanger class is meant for exchanging data between two threads. This class is useful
+     when two threads need to synchronize between each other and continuously exchange data.
+•	 CyclicBarrier helps provide a synchronization point where threads may need to wait at a
+     predefined execution point until all other threads reach that point.
+•	 Phaser is a useful feature when few independent threads have to work in phases to complete a task.
+
+Applying Atomic Variables and Locks
+•	 Java provides an efficient alternative in the form of atomic variables where one needs to
+     acquire and release a lock just to carry out primitive operations on variables.
+•	 A lock ensures that only one thread accesses a shared resource at a time.
+•	 A Condition supports thread notification mechanism. When a certain condition is not
+     satisfied, a thread can wait for another thread to satisfy that condition; that other thread could
+     notify once the condition is met.
+
+Using Executors and ThreadPools
+•	 The Executors hierarchy abstracts the lower-level details of multithreading programming and
+     offers high-level user-friendly concurrency constructs.
+•	 The Callable interface represents a task that needs to be completed by a thread. Once the
+     task completes, the call() method of a Callable implementation returns a value.
+•	 A thread pool is a collection of threads that can execute tasks.
+•	 Future represents objects that contain a value that is returned by a thread in the future.
+•	 ThreadFactory is an interface that is meant for creating threads instead of explicitly creating
+     threads by calling a new Thread().
+
+Using the Parallel Fork/Join Framework
+•	 The Fork/Join framework is a portable means of executing a program with decent parallelism.
+•	 The framework is an implementation of the ExecutorService interface and provides an
+     easy-to-use concurrent platform in order to exploit multiple processors.
+•	 This framework is very useful for modeling divide-and-conquer problems.
+•	 The Fork/Join framework uses the work-stealing algorithm: when a worker thread completes
+     its work and is free, it takes (or “steals”) work from other threads that are still busy doing some work.
+•	 The work-stealing technique results in decent load balancing thread management with
+     minimal synchronization cost.
+•	 ForkJoinPool is the most important class in the Fork/Join framework. It is a thread pool
+     for running fork/join tasks — it executes an instance of ForkJoinTask. It executes tasks and
+     manages their lifecycles.
+•	 ForkJoinTask<V> is a lightweight thread-like entity representing a task that defines methods
+     such as fork() and join().
+
