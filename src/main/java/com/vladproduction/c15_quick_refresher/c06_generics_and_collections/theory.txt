@@ -1,0 +1,83 @@
+•	 Generics will ensure that any attempts to mix elements of types other than the specified
+type(s) will be caught at compile time itself. Hence, generics offer type safety over using the
+Object type.
+
+•	 Java 7 has introduced the “diamond” syntax where the type parameters (given after new
+operator and class name) can be omitted. The compiler will infer the types from the type
+declaration.
+
+•	 Generics are not covariant. That is, subtyping doesn’t work with generics. You cannot assign a
+derived generic type parameter to a base type parameter.
+
+•	 The <?> specifies an unknown type in generics and is known as a wildcard. For example,
+List<?> refers to a list of unknown type values.
+
+•	 Wildcards can be bounded. For example, <? extends Runnable> specifies that ? can match
+any type as long as it is Runnable or any of its derived types. Note that both extends and super
+in this context are inclusive clauses, so you can replace X in <? extends X> and <? super X>.
+
+•	 Use the extends keyword for both class type and interface when specifying bounded types
+in generics. For specifying multiple base types, use the & symbol. For example, in List<?
+extends X & Y>, ? will match types, extending both the types X and Y.
+
+•	 In general, when you use wildcard parameters, you cannot call methods that modify the
+object. If you try to modify, the compiler will give error messages. However, you can call
+methods that access the object.
+
+•	 The terms Collection, Collections, and collection are different:
+* Collection— java.util.Collection<E>—is the root interface in the collection hierarchy.
+* Collections—java.util.Collections—is a utility class that contains only static methods.
+* The general term collection(s) refers to containers like map, stack, queue, etc.
+
+•	 It’s possible to define or declare generic methods in an interface or a class even if the class or
+the interface is not generic.
+
+•	 A generic class used without its type arguments is known as a raw type. Of course, raw types
+are not type safe. Java supports raw types so that it is possible to use the generic type in
+code that is older than Java 5 (note that generics were introduced in Java 5). The compiler
+generates a warning when you use raw types in your code. You may use @SuppressWarnings({
+"unchecked" }) to suppress the warning associated with raw types.
+
+•	 List<?> is a supertype of any List type, which means you can pass List<Integer>, or
+List<String>, or even List<Object> where List<?> is expected.
+
+•	 Implementation of generics is static in nature, which means that the Java compiler interprets
+the generics specified in the source code and replaces the generic code with concrete types.
+This is referred to as type erasure. After compilation, the code looks similar to what a developer
+would have written with concrete types. Essentially, the use of generics offers two advantages:
+first, it introduces an abstraction that enables you to write generic implementation; second, it
+allows you to write generic implementation with type safety.
+
+•	 There are many limitations of generic types due to type erasure. A few important ones are the
+following:
+     •	 You cannot instantiate a generic type using a new operator. For example, assuming mem is
+a field, the following statement will result in a compiler error:
+T mem = new T(); // wrong usage - compiler error
+     •	 You cannot instantiate an array of a generic type. For example, assuming mem is a field, the
+following statement will result in a compiler error:
+T[] amem = new T[100]; // wrong usage - compiler error
+     •	 You can declare non-static fields of type T, but not of static fields of type T. For example,
+class X<T> {
+ T instanceMem; // okay
+ static T statMem; // wrong usage - compiler error
+}
+
+•	 It is not possible to have generic exception classes. For example, the following will not
+compile:
+class GenericException<T> extends Throwable { } // wrong usage - compiler error
+
+•	 You cannot instantiate a generic type with primitive types. For example, List<int> will elicit a
+compiler error. However, you can use boxed primitive types.
+
+•	 The methods hashCode() and equals() need to be consistent for a class. For practical
+purposes, ensure that you follow this rule: the hashCode() method should return the same
+hash value for two objects if the equals() method returns true for them.
+
+•	 If you’re using an object in containers like HashSet or HashMap, make sure you override the
+hashCode() and equals() methods correctly.
+
+•	 In containers, it is not recommended that you store null as an argument since it could be
+difficult to understand the behavior of methods that return null. For example, there are
+methods in the Deque interface that return null, and it would be difficult for you to distinguish
+if the method successfully returned the element value null, or if the method failed and
+returned null.

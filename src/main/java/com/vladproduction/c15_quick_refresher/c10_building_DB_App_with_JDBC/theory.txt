@@ -1,0 +1,115 @@
+•	 JDBC (Java DataBase Connectivity) APIs provided by Java are meant for programmatic access
+to DataBase Management Systems (DBMSs).
+
+•	 JDBC hides all the heterogeneity of all the DBMSs and offers a single set of APIs to interact
+with all types of databases. The complexity of heterogeneous interactions is delegated to the
+JDBC driver manager and JDBC drivers; hence all the details and complications are hidden by
+the JDBC API from the application developer.
+
+•	 There are four types of drivers:
+    •	 Type 1 (JDBC-ODBC bridge drivers): The JDBC driver calls ODBC (Open Database
+Connectivity) native calls using the Java Native Interface (JNI).
+    •	 Type 2 (Native-API drivers): These drivers use client-side libraries of a specific database
+and convert JDBC calls to native database calls.
+    •	 Type 3 (Network-protocol drivers): These drivers call database middleware, and the
+middleware actually converts JDBC calls to database-specific native calls.
+    •	 Type 4 (Native-protocol drivers): The driver directly makes database-specific calls over
+the network without any support of an additional client-side library.
+
+•	 The java.sql.Connection interface provides a channel through which the application and
+the database communicate. The getConnection() method in the DriverManager class takes
+three arguments: the URL string, username string, and password string.
+
+•	 The syntax of the URL (which needs to be specified to get Connection object) is
+<protocol>:<subprotocol>://<server>:<port>/. An example of URL string is
+jdbc:mysql://localhost:3306/. The <protocol> jdbc is same for all DBMSs; <subprotocol>
+will differ for each DBMS, <server> depends on the location in which you host the database,
+and each DBMS uses a specific <port> number.
+
+•	 If the JDBC API is not able to locate the JDBC driver, it will throw a SQLException. If there are
+jars for the drivers available, they need to be included in the classpath to enable the JDBC API
+to locate the driver.
+
+•	 Prior to JDBC 4.0, you had to explicitly load the JDBC driver using the Class.forName()
+statement; with JDBC 4.0 and above, this statement is not needed and JDBC API will load the
+driver from the details given in the URL string.
+
+•	 JDBC supports two classes for querying and updating: Statement and Resultset.
+
+•	 A Statement is a SQL statement that can be used to communicate a SQL statement to
+the connected database and receive results from the database. There are three types of
+Statements:
+•	    Statement: Use Statement when you need to send a SQL statement to the database
+without any parameter.
+•	    PreparedStatement: Represents a precompiled SQL statement that can be customized
+using IN parameters.
+•	    CallableStatement: Used to execute stored procedures; can handle IN as well as OUT
+and INOUT parameters.
+
+•	 Choose the proper execute method based on the type of the SQL statement. Remember
+that each execute method returns different output. The method executeQuery() returns a
+resultset; executeUpdate() returns an update count; and the execute() method may return
+multiple resultsets, or multiple update count, or combination of both.
+
+•	 A Statement object closes the current ResultSet object if a) the Statement object is closed,
+b) is re-executed, or c) is made to retrieve the next set of result. That means it is not necessary
+to call close() explicitly with the ResultSet object; however, it is good practice to call close()
+once you are done with the object.
+
+•	 It is your responsibility to issue a correct SQL command; JDBC Statement will not check for its
+correctness. For example, if there is a syntax error in the SQL command string, you will not get
+a compiler error. Rather, you’ll get a SQLSyntaxErrorException at runtime.
+
+•	 A ResultSet object maintains a cursor pointing to the current row. Initially, the cursor is set to
+just before the first row; calling the next() method advances the cursor position by one row.
+
+•	 You can use column name or column index with ResultSet methods. The index you use is the
+index of the ResultSet object, not the column number in the database table.
+
+•	 The column index in the ResultSet object starts from 1 (not from 0).
+
+•	 You may use the column name of a ResultSet object without worrying about the case:
+getXXX() methods accept case-insensitive column names to retrieve the associated value.
+
+•	 Think of a case when you have two columns in a ResultSet object with the same name.
+How you can retrieve the associated values using the column name? If you use column name
+to retrieve the value, it will always point to the first column that matches with the given
+name. Hence, you have to use column index in this case to retrieve values associated with the
+both columns.
+
+•	 You need to call updateRow() after modifying the row contents in a ResultSet; otherwise
+changes made to the ResultSet object will be lost.
+
+•	 You may cancel any update you made using the method cancelRowUpdates(). However, you
+must call this method before calling the method updateRow(). In all other cases, it has no
+impact on the row.
+
+•	 By calling the getMetaData() method in the Connection interface, you can examine the
+capabilities of the underlying database.
+
+•	 A transaction is a set of SQL operations that needs to be either executed all successfully
+or not at all.
+
+•	 By default auto-commit mode is set to true, so all changes you make through the connection
+are committed automatically to the database. You can use setAutoCommit(false); to enable
+manual commits. With auto-commit not enabled, you need to explicitly commit or rollback
+transactions.
+
+•	 If the commit() method does not execute in manual commit mode, there will be no change in
+the database.
+
+•	 You can divide a big transaction into multiple milestones. These milestones are referred to
+as Savepoints. This way you may save the changes to database up to a milestone once the
+milestone is achieved.
+
+•	 RowSet is a special ResultSet that supports the JavaBean component model. Figure 15-2
+summarizes the RowSet hierarchy and associated key capabilities.
+
+•	 JdbcRowSet is a connected RowSet while other subinterfaces of RowSet (i.e., JoinRowSet,
+CachedRowSet, WebRowSet, and FilteredRowSet) are disconnected RowSets.
+
+•	 RowSetProvider provides APIs to get the RowSetFactory implementation, which can in turn
+be used to instantiate a relevant RowSet implementation.
+
+•	 JDBC 4.1 introduces the capability to use try-with-resources statement to close resources
+(Connection, ResultSet, and Statement) automatically.

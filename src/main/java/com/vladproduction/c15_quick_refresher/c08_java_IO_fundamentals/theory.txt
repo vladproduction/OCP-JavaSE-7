@@ -1,0 +1,46 @@
+•	 You can obtain reference to the console using the System.console() method; if the JVM is
+not associated with any console, this method will fail and return null.
+
+•	 Many methods are provided in Console-support formatted I/O. You can use the printf()
+and format() methods available in the Console class to print formatted text; the overloaded
+readLine() and readPassword() methods take format strings as arguments.
+
+•	 You can use character streams for text-based I/O and byte streams for data-based I/O.
+
+•	 Character streams for reading and writing are called readers and writers, respectively
+(represented by the abstract classes Reader and Writer). Byte streams for reading and writing
+are called input streams and output streams, respectively (represented by the abstract classes
+InputStream and OutputStream).
+
+•	 You can combine stream objects. You can create an object of BufferedInputStream that takes a
+FileInputStream object. In this way, the output of one stream is chained to the filtered stream.
+This is an important, useful, and elegant way to customize the stream based on your needs.
+
+•	 For processing data with primitive data types and Strings, you can use data streams.
+
+•	 Serialization is the process of converting the objects in memory into a series of bytes. You
+need to implement the Serializable interface in a class if you want to make the objects of the
+class serializable.
+
+•	 The Serializable interface is a marker interface. That means the Serializable interface
+does not declare any method inside it.
+
+•	 If you want to customize the process of serialization, you can implement the readObject()
+and writeObject() methods. Note that both of these methods are private methods, which
+means you are not overriding or overloading these methods. JVM checks the implementation
+of these methods and calls them instead of the usual methods. It sounds weird but it is the way
+the customization of the serialization process is implemented in the JVM.
+
+•	 A serialized object can be communicated over the network and deserialized on another
+machine. However, the class file of the object must be in the path of the destination machine,
+otherwise only the state of the object will be restored, not the whole object (i.e., you cannot
+invoke a method on the restored object).
+
+•	 You can create your own protocol for serialization. For that, you need to implement the
+Externalizable interface instead of the Serializable interface.
+
+•	 When you are not specifying serialVersionUID in a serialized class, JVM computes it for you.
+However, each JVM implementation has different mechanism to compute it; hence, it is not
+guaranteed that your serialized class will work on two different JVMs when you have not
+specified the serialVersionUID explicitly. Therefore, it is strongly recommended that you
+provide serialVersionUID in a class implementing the Serializable interface.

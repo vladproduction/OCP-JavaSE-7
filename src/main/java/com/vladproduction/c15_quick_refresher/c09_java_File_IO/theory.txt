@@ -1,0 +1,65 @@
+•	 A Path object is a programming abstraction to represent a path of a file/directory.
+
+•	 Do not confuse File with Files, Path with Paths, and FileSystem with FileSystems; they
+are different. File is an old class (Java 4) that represents file/directory path names, while
+Files was introduced in Java 7 as a utility class with comprehensive support for I/O APIs. The
+Path interface represents a file/directory path and defines a useful set of methods. However,
+the Paths class is a utility class that offers only two methods (both to get the Path object).
+FileSystems offer a list of factory methods for the class FileSystem, whereas FileSystem
+provides a useful set of methods to get information about a file system.
+
+•	 The file or directory represented by a Path object might not exist.
+
+•	 Path provides two methods to use to compare Path objects: equals() and compareTo(). Even
+if two Path objects point to the same file/directory, it is not guaranteed that you will get true
+from the equals() method. You need to make sure that both are absolute and normalized
+paths for an equality comparison to succeed for paths.
+
+•	 You can check the existence of a file using the exists() method of the Files class.
+
+•	 You can retrieve attributes of a file using the getAttributes() method. You can use the
+readAttributes() method of the Files class to read attributes of a file in bulk.
+
+•	 While copying, all the directories (except the last one if you are copying a directory) in the
+specified path must exist to avoid NoSuchFileException.
+
+•	 If you copy a directory using the copy() method, it will not copy the files/directories contained
+in the source directory; you need to explicitly copy them to the destination folder.
+
+•	 It is not necessary that you perform copy on two files/directories only. You can take input from
+an InputStream and write to a file; similarly, you can take input from a file and copy to an
+OutputStream. You can use the methods copy(InputStream, Path, CopyOptions...) and
+copy(Path, OutputStream, CopyOptions...).
+
+•	 Use the delete() method to delete a file; use the deleteIfExists() method to delete a file
+only if it exists.
+
+•	 If you do not want to implement all four methods in the FileVisitor interface, you can
+simply extend your implementation from the SimpleFileVisitor class.
+
+•	 The PathMatcher interface is useful when you want to find a file satisfying a certain pattern.
+You can specify the pattern using glob or regex. Table 15-5 summarizes the patterns
+supported by the Glob syntax.
+
+•	 Java 7 offers a directory watch service that can notify you when the file you are working on is
+changed by some other program. You can register a Path object using a watch service along
+with certain event types. Whenever any file in the specified directory changes, an event is sent
+to the registered program.
+
+•	 You must be careful performing an operation while walking a file tree. For instance, if you
+are performing a recursive delete, then you should first delete all the containing files before
+deleting the directory that is holding these containing files.
+
+•	 The Visitor design pattern is used to enable walking through a file tree.
+
+•	 In the context of a watch service, a state is associated with a watch key. A watch key might be
+in ready state (ready to accept events), in signed state (when one or more events are queued),
+or in invalid state (when the watch key is not valid). If the key is in the signed state, it is
+required to call the reset() method; otherwise the state of the key will not change to ready
+state and you will not receive any further event notification.
+
+•	 If you are watching a directory using the watch service offered by Java 7, only files contained
+in that directory will be watched—and not the files contained in the subdirectories of that
+directory. If you intend to watch the whole subtree of the file system, you need to recursively
+register each directory in the subtree.
+

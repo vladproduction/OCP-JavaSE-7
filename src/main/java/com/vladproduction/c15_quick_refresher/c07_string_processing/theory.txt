@@ -1,0 +1,39 @@
+•	 A regular expression defines a search pattern that can be used to execute operations such as
+string search and string manipulation. Table 15-1 summarizes commonly used symbols to
+specify regex, Table 15-2 lists commonly used metasymbols to specify regex, and Table 15-3
+presents commonly used quantifiers with regex.
+
+•	 The argument of the split() method is a delimiter string, which is a regular expression.
+If the regular expression you pass has invalid syntax, you’ll get a PatternSyntaxException
+exception.
+
+•	 Use the Pattern and Matcher classes whenever you are performing a search or replace on
+strings heavily; they are more efficient and faster than any other way to perform search/
+replace in Java.
+
+•	 You can form groups within a regex. These groups can be used to specify quantifiers on a
+desired subset of the whole regex. These groups can also be used to specify back reference.
+
+•	 The method printf() (and the method format() in the String class) uses string formatting
+flags to format strings.
+
+•	 Each format specifier starts with the % sign; followed by flags, width, and precision
+information; and ending with a data type specifier. In this string, the flags, width, and precision
+information are optional while the % sign and data type specifier are mandatory. Table 15-4
+shows the commonly used data type specifier symbols.
+
+•	 If you do not specify any string formatting specifier, the printf() method will not print
+anything from the given arguments!
+
+•	 Flags such as '-', '^', or '0' make sense only when you specify width with the format
+specifier string.
+
+•	 You can also print the % character in a format string; however, you need to use an escape
+sequence for it. In format specifier strings, % is an escape character, which means you need to
+use %% to print a single %.
+
+•	 If you do not provide the intended input data type as expected by the format string, you can
+get an IllegalFormatConversionException.
+
+•	 If you want to form a string and use it later rather than just printing it using the printf()
+method, you can use a static method in the String class, format().

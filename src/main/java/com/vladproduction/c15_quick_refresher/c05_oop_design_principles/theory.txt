@@ -1,0 +1,44 @@
+•	 An interface can extend another interface. Use the extends (and not the implements) keyword for this.
+
+•	 All methods declared in an interface are implicitly considered to be abstract.
+
+•	 Interfaces cannot contain instance variables. If you declare a data member in an interface,
+     it should be initialized, and all such data members are implicitly treated as public static final members.
+
+•	 An interface cannot declare static methods. It can only declare instance methods.
+
+•	 You cannot declare members as protected or private in an interface. Only public access is
+     allowed for members of an interface.
+
+•	 All methods declared in an interface are implicitly considered to be abstract. You can,
+     however, explicitly use the abstract qualifier for the method.
+
+•	 An interface can be declared with an empty body (i.e., an interface without any members;
+     these interfaces are known as tagging interfaces or marker interfaces). Such interfaces are
+     useful for defining a common parent, so that runtime polymorphism can be used. For
+     example, java.util defines the interface EventListener without a body.
+
+•	 An interface can be declared within another interface or class. Such interfaces are known as
+     nested interfaces.
+
+•	 Unlike top-level interfaces that can have only public or default access, a nested interface can
+     be declared as public, protected, or private.
+
+•	 Inheritance implies is-a, interface implies is-like-a, and composition implies has-a
+     relationships.
+
+•	 Favor composition over inheritance wherever feasible.
+
+•	 The Singleton design pattern ensures that only one instance of the class is created.
+
+•	 Making sure that an intended singleton implementation is indeed singleton is a non-trivial
+     task, especially in a multithreading environment.
+
+•	 The factory design pattern “manufactures” the required type of product on demand.
+
+•	 You should consider using the abstract factory design pattern when you have a family of objects to be created.
+
+•	 A DAO design pattern essentially separates your core business logic from your persistence logic.
+
+•	 In a DAO pattern, you may also employ the abstract factory design pattern if you have multiple
+     DAO objects, and you have multiple persistence mechanisms.

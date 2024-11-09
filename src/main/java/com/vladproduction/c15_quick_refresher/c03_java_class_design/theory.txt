@@ -1,0 +1,31 @@
+
+•	 You cannot access the private methods of the base class in the derived class.
+
+•	 You can access the protected method from a class in the same package (just like package
+     private or default) as well as a derived class (even belonging to another package).
+
+•	 You can have overloaded constructors. You can call a constructor of the same class in another
+     constructor using the this keyword.
+
+•	 Inheritance is also called an is-a relationship.
+
+•	 In overriding, the name of the method, number of arguments, types of arguments, and return
+     type should match exactly (however, in covariant return types, you can provide the derived
+     class of the return type in the overriding method).
+
+•	 You cannot overload methods that differ in return types alone. Similarly, you cannot overload
+     methods that differ in exception specifications alone.
+
+•	 For an overload resolution to succeed, you need to define methods such that the compiler
+     finds one exact match. If the compiler finds no matches for your call or finds more than one
+     match, the overload resolution fails and the compiler issues an error.
+
+•	 Overloading is an example of static polymorphism (early binding) while overriding is an
+     example of dynamic polymorphism (late binding).
+
+•	 You don’t need to do an explicit cast to perform an upcast. An upcast will always succeed.
+
+•	 You need to do an explicit cast to perform a downcast. A downcast may fail. You can use the
+     instanceof operator to see if a downcast is valid.
+
+•	 A static import only imports static members of the specified package or class.

@@ -16,4 +16,5 @@
 * ### c12_localization
 * ### c13_threads
 * ### c14_concurrency
+* ### c15_quick_refresher
 

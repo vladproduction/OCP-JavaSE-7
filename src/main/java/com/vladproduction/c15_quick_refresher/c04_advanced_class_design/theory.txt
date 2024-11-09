@@ -1,0 +1,61 @@
+
+•	 The abstract keyword can be applied to a class or a method but not to a field.
+
+•	 An abstract class cannot be instantiated. You can, however, create reference variables of an
+     abstract class type.
+
+•	 An abstract class can extend another abstract class or can implement an interface. Further,
+     an abstract class can be derived from a concrete class (though it is not a good practice)!
+
+•	 An abstract class need not declare an abstract method, which means it is not necessary for
+     an abstract class to have methods declared as abstract. However, if a class has an abstract
+     method, it should be declared as an abstract class.
+
+•	 A concrete subclass of an abstract class needs to provide implementation of all the abstract
+     methods it inherits; otherwise you need to declare that subclass as an abstract class.
+
+•	 An abstract class may have methods or fields declared static. A final class is a non-inheritable
+     class (i.e., you cannot inherit from a final class).
+
+•	 A final method is a non-overridable method (i.e., subclasses cannot override a final method).
+
+•	 All methods of a final class are implicitly final (i.e., non-overridable).
+
+•	 A final variable must be initialized. If it’s not initialized when it is declared, it must be
+     initialized in all the constructors. Also, a final variable can be assigned only once.
+
+•	 The keyword final can be used for parameters. The value of a final parameter cannot be
+     changed once assigned. Here, it is important to note that the value is implicitly understood
+     for primitive types. However, the value for an object refers to the object reference, not its state.
+     Therefore, you can change the internal state of the passed final object, but you cannot change
+     the reference itself.
+
+•	 All static members do not require an instance of its class to call/access them. You can directly
+     call/access them using the class name.
+
+•	 A static member can call/access only a static member of its own class.
+
+•	 A static method cannot use the this or super keyword in its body.
+
+•	 Java supports four types of nested classes: static nested classes, inner classes, local inner
+     classes, and anonymous inner classes.
+
+•	 Static nested classes may have static members, whereas the other flavors of nested classes may not.
+
+•	 Static nested classes and inner classes can access members of an outer class (even private
+     members). However, static nested classes can access only static members of the outer class.
+
+•	 Local classes (both local inner classes and anonymous inner classes) can access all variables
+     declared in the outer scope (whether a method, constructor, or a statement block).
+
+•	 You cannot use new with enums, even inside the enum definition.
+
+•	 Enums are implicitly declared public, static, and final, which means you cannot extend them.
+
+•	 When you define an enumeration, it implicitly inherits from java.lang.Enum. Internally,
+     enumerations are converted to classes. Further, enumeration constants are instances of the
+     enumeration class for which the enumeration constants are declared as members.
+•	 If you declare an enum within a class, then it is by default static.
+
+•	 You can compare two enumerations for equality using the == operator. When an enumeration
+     constant’s toString() method is invoked, it prints the name of the enumeration constant.
