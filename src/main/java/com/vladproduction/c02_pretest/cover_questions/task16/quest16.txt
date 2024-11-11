@@ -1,0 +1,10 @@
+Which one of the following relationships describes the OO design concept of “composition”?
+a) is-a
+b) is-a-kind-of
++++c) has-a
+d) is-implemented-in-terms-of
+e) composed-as
+f) DAO
+
+Composition is a design principle in object-oriented programming where one class (the whole) contains instances of other classes (the parts).
+This relationship indicates that the whole "has-a" relationship with its parts.

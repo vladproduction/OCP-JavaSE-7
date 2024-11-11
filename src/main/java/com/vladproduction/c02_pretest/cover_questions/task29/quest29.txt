@@ -1,0 +1,42 @@
+Which of the following two statements is true regarding object serialization in Java?
+a) A serializable interface declares two methods, readObject() and writeObject(). To support serialization in
+ your class, you need to implement the Serializable interface and define these two methods.
++++b) When serializing an object that has references to other objects, the serialization mechanism also includes the
+ referenced objects as part of the serialized bytes.
++++c) When an object is serialized, the class members that are declared as transient will not be serialized (and hence
+ their values are lost after deserialization).
+d) The Externalizable interface is a marker interface; in other words, it’s an empty interface that does not declare
+ any methods.
+e) If you attempt to serialize or persist an object that does not implement the Externalizable interface, you’ll get a
+ NotExternalizableException.
+
+ Description analysis:
+
+ a) A serializable interface declares two methods, readObject() and writeObject(). To support serialization in your class,
+ you need to implement the Serializable interface and define these two methods.
+        False: The Serializable interface is a marker interface (it does not declare any methods).
+        The readObject() and writeObject() methods are part of the Externalizable interface, which is used for custom serialization.
+
+ b) When serializing an object that has references to other objects, the serialization mechanism also includes the referenced
+ objects as part of the serialized bytes.
+        True: When an object is serialized, all objects that it references are also serialized.
+        This process continues recursively for all referenced objects unless they are marked as transient.
+
+ c) When an object is serialized, the class members that are declared as transient will not be serialized
+ (and hence their values are lost after deserialization).
+        True: Transient variables are not included in the serialization process, so their values will not be restored after deserialization.
+
+ d) The Externalizable interface is a marker interface; in other words, it’s an empty interface that does not declare any methods.
+        False: The Externalizable interface is not a marker interface;
+        it declares two methods: writeExternal() and readExternal(), which allow for custom serialization.
+
+ e) If you attempt to serialize or persist an object that does not implement the Externalizable interface, you’ll get a NotExternalizableException.
+        False: If a class does not implement Externalizable, it can still be serialized if it implements Serializable.
+        There is no exception called NotExternalizableException.
+
+ Conclusion:
+ The true statements regarding object serialization in Java are:
+ b) When serializing an object that has references to other objects,
+    the serialization mechanism also includes the referenced objects as part of the serialized bytes.
+ c) When an object is serialized, the class members that are declared as transient will not be serialized
+    (and hence their values are lost after deserialization).

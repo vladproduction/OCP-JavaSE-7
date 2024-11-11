@@ -1,0 +1,25 @@
+The main aim of this question: correctly interpret the behavior of the sleep() method in relation to thread locking and synchronization in Java.
+
+Which of the following two statements are true regarding the sleep() method defined in Thread class?
++++a) The sleep() method takes milliseconds as an argument for the time to sleep.
+b) The sleep() method takes microseconds as an argument for the time to sleep.
+c) The sleep() method relinquishes the lock when the thread goes to sleep and reacquires the lock when the thread wakes up.
++++d) The sleep() method can throw InterruptedException if it is interrupted by another thread when it sleeps.
+
+//description:
+c) False: The sleep() method does not relinquish any locks held by the thread.
+The sleep() method causes the thread to pause for a specified duration but does not release any synchronization locks
+that the thread holds. This means if a thread is inside a synchronized block, it will still hold the lock on that block even while it is sleeping.
+So, c) is not true;
+
+d) is True because:
+If a thread is sleeping, and it is interrupted by another thread, the sleep() method throws an InterruptedException.
+When a thread is sleeping, it does not give up its locks; thus, any code that tries to access the synchronized section
+locked by this thread will be blocked until the thread wakes up and either finishes executing or leaves the synchronized block.
+
+In conclusion:
+If a thread is sleeping and is interrupted by another thread, the sleep() method will throw an InterruptedException.
+Meanwhile, the sleeping thread maintains its locks, preventing other threads from entering any synchronized section
+until the sleeping thread either wakes up or finishes execution.
+However, that InterruptedException is thrown because another thread is attempting to interrupt the sleeping thread
+due to synchronized section access; rather, it is thrown because that other thread indeed called the interrupt() method.

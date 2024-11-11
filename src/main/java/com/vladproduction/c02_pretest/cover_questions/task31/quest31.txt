@@ -1,0 +1,13 @@
+Consider the following code snippet:
+Path wordpadPath = Paths.get("C:\\Program Files\\Windows NT\\Accessories\\wordpad.exe");
+System.out.println(wordpadPath.subpath(beginIndex, endIndex));
+What are the values of the integer values beginIndex and endIndex in this program that will result in this code
+segment printing the string “Program Files” as output?
+a) beginIndex = 1 and endIndex = 2
++++b) beginIndex = 0 and endIndex = 1
+c) beginIndex = 1 and endIndex = 1
+d) beginIndex = 4 and endIndex = 16
+
+By default, assertions are disabled. If -ea (or the -enableassertions option to enable assertions), then
+the program would have printed “Error” since the exception thrown in the case of assertion failure is
+java.lang.AssertionError, which is derived from the Error class.

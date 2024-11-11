@@ -1,16 +1,22 @@
 Planning step-by-step:
-+++Step 1: First read the FAQ in Chapter 1 and get familiar with the exam
 
-Step 2: Check the exam topics (Appendix A) and mark the topics you’re not familiar with or comfortable with.
+Step 1:
+First read the FAQ in Chapter 1 and get familiar with the exam
+
+Step 2:
+Check the exam topics (Appendix A) and mark the topics you’re not familiar with or comfortable with.
 Read the chapters or sections corresponding to the topics you’ve marked for preparation.
 
-Step 3: Take the pretest in Chapter 2. If you’ve answered all the questions correctly for an exam chapter, you may
-want to skip reading the corresponding chapter. For those exam topics in which you did not scored well, mark those
+Step 3:
+Take the pretest in Chapter 2. If you’ve answered all the questions correctly for an exam chapter, you may
+want to skip reading the corresponding chapter. For those exam topics in which you did not score well, mark those
 chapters and read them first. Try out as many sample programs as possible while you read the chapters.
 
-Step 4: Once you feel you are ready to take the exam, take the first mock test (Appendix B). If you don’t pass it,
+Step 4:
+Once you feel you are ready to take the exam, take the first mock test (Appendix B). If you don’t pass it,
 go back to the chapters in which you are weak, read them, and try out more code relating to those topics. Once you’re
 confident, attempt the second mock test (Appendix C). If you’ve prepared well, you should be able to pass it.
 
-Step 5: Register for the exam and take the exam based on your performance in the mock tests. The day before
+Step 5:
+Register for the exam and take the exam based on your performance in the mock tests. The day before
 taking the exam, read Chapter 15, “OCPJP 7 Quick Refresher.”

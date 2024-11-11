@@ -1,0 +1,34 @@
+Which of the following two statements are true regarding Statement and its derived types?
+a) Objects of type Statement can handle IN, OUT, and INOUT parameters.
+b) PreparedStatement is used for executing stored procedures.
++++c) You can get an instance of PreparedStatement by calling preparedStatement() method in the Connection
+ interface.
++++d) CallableStatement extends the PreparedStatement class; PreparedStatement in turn extends the Statement
+ class.
++++e) The interface Statement and its derived interfaces implement the AutoCloseable interface, hence it can be used
+ with try-with-resources statement.
+
+ Statement Analysis:
+ a) Objects of type Statement can handle IN, OUT, and INOUT parameters.
+        False: The Statement interface cannot handle parameters directly.
+        Only CallableStatement can handle IN, OUT, and INOUT parameters, which are specifically for calling stored procedures.
+
+ b) PreparedStatement is used for executing stored procedures.
+        False: While PreparedStatement can be used for executing parameterized SQL queries, it is not specifically designed for
+        executing stored procedures. For stored procedures, you would typically use a CallableStatement.
+
+ c) You can get an instance of PreparedStatement by calling preparedStatement() method in the Connection interface.
+        True: You get a PreparedStatement instance using the method prepareStatement(String sql) from the Connection interface.
+
+ d) CallableStatement extends the PreparedStatement class; PreparedStatement in turn extends the Statement class.
+        True: CallableStatement does indeed extend PreparedStatement, and PreparedStatement extends Statement.
+        The hierarchy is as follows: Statement -> PreparedStatement -> CallableStatement.
+
+ e) The interface Statement and its derived interfaces implement the AutoCloseable interface, hence it can be used with try-with-resources statement.
+        True: The Statement interface and its derived interfaces (PreparedStatement and CallableStatement)
+        do implement the AutoCloseable interface, which allows them to be used in a try-with-resources statement.
+
+ Summary of Correct Statements (true statements are):
+ c) You can get an instance of PreparedStatement by calling prepareStatement() method in the Connection interface.
+ d) CallableStatement extends the PreparedStatement class; PreparedStatement in turn extends the Statement class.
+ e) The interface Statement and its derived interfaces implement the AutoCloseable interface, hence it can be used with try-with-resources statement.

@@ -1,0 +1,7 @@
+Which one of the following options is a correct way to create a watch service for watching a directory for
+changes?
+a) Watchable watch = FileSystems.getDefault().newWatchable();
++++b) WatchService watcher = FileSystems.getDefault().newWatchService();
+c) DirectoryWatchService dirWatcher = FileSystems.getDefault().newDirectoryWatchService();
+d) FileWatchService fileWatcher = FileSystems.getNewFileWatchService();
+e) FileDirectoryWatchService fileDirWatcher = WatchService.getNewFileDirectoryWatchService();

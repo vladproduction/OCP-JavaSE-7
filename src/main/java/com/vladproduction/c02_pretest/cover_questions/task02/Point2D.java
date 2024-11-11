@@ -4,9 +4,7 @@ class Point2D {
     private int x, y;
 
     public Point2D(int x, int y) {
-
-     x = x;
-
+        x = x;
     }
 
     public String toString() {
@@ -27,6 +25,6 @@ class Point2D {
 Which one of the following options provides the output of this program when executed?
 a) point
 b) Point
-c) [0, 0]
++++c) [0, 0]
 d) [10, 0]
 e) [10, 20]*/

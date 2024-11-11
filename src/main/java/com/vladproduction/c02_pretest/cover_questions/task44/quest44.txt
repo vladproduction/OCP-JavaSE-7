@@ -1,0 +1,31 @@
+Assume that you’ve the following resource bundles in your classpath:
+
+ResourceBundle.properties
+ResourceBundle_ar.properties
+ResourceBundle_en.properties
+ResourceBundle_it.properties
+ResourceBundle_it_IT_Rome.properties
+
+Also assume that the default locale is English (US), where the language code is en and country code is US.
+Which one of these five bundles will be loaded for the call loadResourceBundle("ResourceBundle", new Locale("fr", "CA", ""));?
+
+a) ResourceBundle.properties
+b) ResourceBundle_ar.properties
++++c) ResourceBundle_en.properties
+d) ResourceBundle_it.properties
+e) ResourceBundle_it_IT_Rome.properties
+
+Resource Bundle Resolution Strategy:
+
+
+c) ResourceBundle_en.properties
+Java looks for candidate locales for a base bundle named ResourceBundle and locale French (Canada), and
+checks for the presence of the following property files:
+ResourceBundle_fr_CA.properties
+ResourceBundle_fr.properties
+Since both of them are not there, Java searches for candidate locales for the base bundle named
+ResourceBundle and a default locale (English - United States):
+ResourceBundle_en_US.properties
+ResourceBundle_en.properties
+Java finds that there is a matching resource bundle, ResourceBundle_en.properties. Hence it loads this
+resource bundle.

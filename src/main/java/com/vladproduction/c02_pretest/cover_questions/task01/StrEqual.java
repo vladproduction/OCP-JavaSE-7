@@ -31,7 +31,7 @@ s1 and s3 equal
 b)
 s1 and s2 equal
 s1 and s3 not equal
-c)
++++c)
 s1 and s2 not equal
 s1 and s3 equal
 d)

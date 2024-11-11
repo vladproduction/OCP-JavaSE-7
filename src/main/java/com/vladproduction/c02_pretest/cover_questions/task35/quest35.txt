@@ -1,0 +1,61 @@
+Consider the following sequence of statements when using JDBC API. Assume that you’ve a TempSensor table
+with the column name temp.
+// assume that connection is successfully established to the database
+connection.setAutoCommit(true);
+Statement statement = connection.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE,
+ResultSet.CONCUR_UPDATABLE);
+resultSet = statement.executeQuery("SELECT * FROM TempSensor");
+// assume that the initial value of temp is "0" in the table
+resultSet.moveToInsertRow();
+resultSet.updateString("temp", "100");
+resultSet.insertRow();
+Savepoint firstSavepoint = connection.setSavepoint();
+
+resultSet.moveToInsertRow();
+resultSet.updateString("temp", "200");
+resultSet.insertRow();
+Savepoint secondSavepoint = connection.setSavepoint();
+resultSet.moveToInsertRow();
+resultSet.updateString("temp", "300");
+resultSet.insertRow();
+Savepoint thirdSavepoint = connection.setSavepoint();
+connection.rollback(secondSavepoint);
+connection.commit();
+
+Which one of the following options correctly describes the behavior of this program?
+a) temp value will be set to “100” in the table TempSensor.
+b) temp value will be set to “200” in the table TempSensor.
+c) temp value will be set to “300” in the table TempSensor.
+d) temp value will be set to “0” in the table TempSensor.
++++e) The program will result in throwing a SQLException because auto-commit is true.
+
+Description:
+Breakdown of the Code Execution:
+
+1)Connection and AutoCommit:
+The connection is set with setAutoCommit(true), which means every individual statement is automatically committed after its execution.
+
+2)Creating the Statement:
+A Statement object is created that supports a scrollable and updatable result set.
+
+3)Insert Rows:
+The program begins by moving to an insert row, updating the column "temp", and inserting three rows with
+the values "100", "200", and "300". Each time an insert is performed, the changes are immediately committed
+because autoCommit is set to true. This means the inserted rows are not affected by subsequent rollback() operations.
+
+4)Savepoints:
+The first savepoint is created after inserting "100".
+The second savepoint is created after inserting "200".
+The third savepoint is created after inserting "300".
+Since auto-commit is true, the inserts have already been committed, and thus the savepoints are merely markers for potential rollbacks;
+however, they won't undo the rows that were already inserted.
+
+5)Rollback:
+When a rollback to secondSavepoint is called, it means that any operations that were done after that savepoint will be rolled back.
+This rollback will affect operations that occurred after the second savepoint and does not affect the inserted
+rows "100" and "200" since they were already committed (due to auto-commit being enabled).
+
+Answer: e)
+The program will result in throwing a SQLException because auto-commit is true.
+If you call methods such as commit() or rollback() when the auto-commit mode is set to true, the program will
+a SQLException.
